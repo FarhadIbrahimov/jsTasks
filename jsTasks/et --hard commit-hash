@@ -1,0 +1,14 @@
+[33m6b7e8da[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: reset: moving to origin/main
+[33m6867e07[m HEAD@{1}: pull: Merge made by the 'ort' strategy.
+[33md8a2fe0[m HEAD@{2}: commit: Updating projects
+[33m0caf480[m HEAD@{3}: commit: DOM Manipulation
+[33m8f35bdb[m HEAD@{4}: commit: DOM Manipulation Practice
+[33m0f493ac[m HEAD@{5}: commit: DOM Manipulation Practice
+[33md7dbfd5[m HEAD@{6}: commit: Top Menu practice part2
+[33mebe939d[m HEAD@{7}: commit: Dom-practice lab with explanation comments
+[33m619976c[m HEAD@{8}: commit: Updating README file
+[33me50ebd6[m HEAD@{9}: commit: Remove comments from homework.js
+[33m2c817ae[m HEAD@{10}: commit: Building a Person class
+[33m6c8037c[m HEAD@{11}: Branch: renamed refs/heads/master to refs/heads/main
+[33m6c8037c[m HEAD@{13}: commit: first commit
+[33me651036[m HEAD@{14}: commit (initial): Add jsTasks folder
