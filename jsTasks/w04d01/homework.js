@@ -20,10 +20,12 @@ class Hamster{
   action1.eatFood();
   console.log(action1.getPrice())
   
+  
   console.log('----------------------------------------Person---------------------------------------------------')
  
-  class Person {
-    constructor(name) {
+  class Person  {
+    constructor( name) {
+      
       this.name = name;
       this.age = 0;
       this.height = 0;
@@ -31,6 +33,7 @@ class Hamster{
       this.mood = 0;
       this.hamsters = [];
       this.bankAccount = 0; 
+
     }
   
     getName() {
@@ -38,7 +41,7 @@ class Hamster{
     }
   
     getAge() {
-      return this.age;
+        return `John is ${this.age} old`;
     }
   
     getWeight() {
@@ -64,9 +67,8 @@ class Hamster{
       this.weight++;
       this.mood--;
       this.bankAccount += 10;
-      console.log(`${this.name} is getting older. Age: ${this.age}, Height: ${this.height}, Weight: ${this.weight}, the mood scale from 0 to 10 is  ${this.mood}, Bank Account: ${this.bankAccount}`)
     } 
-  
+   
     buyHamster(hamster) {
       this.hamsters.push(hamster);
       this.mood += 10;
@@ -75,18 +77,20 @@ class Hamster{
   }
   
   const person = new Person("John");
-  console.log(person.getName()); 
+  console.log(`${person.getName()} is here!`); 
   person.greet(); 
   person.eat();
-  console.log(person.getWeight()); 
   person.exercise();
-  console.log(person.getWeight());
   person.ageUp(50);
   console.log(person.getAge()); 
+  console.log(`${person.name} is getting older. Age: ${person.age}, Height: ${person.height}, Weight: ${person.weight}, the mood scale from 0 to 10 is  ${person.mood}, Bank Account: ${person.bankAccount}`)
+
   
-  const hamster = new Hamster(person.getName(), "Pumpkin", 100);
+  const hamster = new Hamster(person.name, 'Puff', 105)
   person.buyHamster(hamster);
-  console.log(person.hamsters); 
-  console.log(person.mood); 
-  console.log(person.bankAccount); 
+  console.log(`${person.hamsters[0].owner} has a pet hamster named '${person.hamsters[0].name}', he bought '${person.hamsters[0].name}' for $${person.hamsters[0].price} `); 
+  console.log(`${person.hamsters[0].owner}'s mood on the scale 0 to 10, is ${person.mood}`); 
+  console.log(`Even though his bank acount balance is $${person.bankAccount}`); 
+  
+  console.log('-------------------Story------------------');
   
