@@ -27,7 +27,7 @@ The Hangman game has the following dependencies:
 - None
 
 ## Author
-![The HangedMan](author.png)  
+![The HangedMan](author-.png)
 ***The HangedMan***
 
 ## Acknowledgments
