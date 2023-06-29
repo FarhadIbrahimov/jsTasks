@@ -104,3 +104,134 @@ function drawHangmanBody(incorrectGuesses) {
     }
 }
 
+
+
+
+
+submitWord.addEventListener('click', (event) => {
+    if (!btnCr) {
+        const reset = document.createElement('button');
+        reset.setAttribute('id', 'reset');
+        reset.textContent = 'RESET';
+        hangManCanvas.style.height = '30vw';
+        hangManCanvas.style.width = '25vw';
+        hangManCanvas.style.marginTop = '-5%';
+
+        hangManCanvas.style.backgroundColor = 'green';
+        gameSpotLight.style.display = 'flex';
+        gameSpotLight.style.textAlign = 'center';
+
+        const gContainerMain = document.createElement('div');
+        gContainerMain.classList.add('gContainerMain');
+        const gContainer = document.createElement('div');
+        gContainer.classList.add('gContainer');
+        const guesses = document.createElement('h3');
+        guesses.setAttribute('id', 'guesses');
+        gContainer.setAttribute('id', 'guessesContainer');
+        guesses.textContent = 'GUESSED LETTERS';
+        gContainer.style.backgroundColor = 'red';
+        gContainerMain.setAttribute('id', 'gContainerMain');
+        gContainerMain.style.height = '15vw';
+        gContainerMain.style.top = '0%';
+        gContainerMain.style.marginTop = '2%';
+
+        wordSpotLight.style.display = 'flex';
+        wordSpotLight.style.justifyContent = 'space-evenly';
+        wordSpotLight.style.flexDirection = 'column';
+        gContainerMain.style.display = 'flex';
+        gContainerMain.style.justifyContent = 'space-evenly';
+        gContainerMain.style.flexDirection = 'row';
+        console.dir('START HERE');
+        word = wordInput.value;
+        console.log(word);
+        console.dir('ends here');
+        guessesLeft = word.length + 5; // Set the number of guesses allowed
+
+        for (let i = 0; i < word.length; i++) {
+            // Creating HTML content
+            let dashes = document.createElement('h2');
+            dashes.innerText = '_';
+            dashesElements.push(dashes); // Store the dash element
+            gContainerMain.appendChild(dashes);
+        }
+        gameSpotLight.appendChild(reset);
+        gContainer.appendChild(guesses);
+        wordSpotLight.appendChild(gContainer);
+        wordSpotLight.appendChild(gContainerMain);
+
+        btnCr = true;
+    }
+    wordSetup.style.display = 'none';
+    gameSpotLight.style.display = 'block';
+
+    // Keyboard section
+
+    alphabet.forEach(function (letter) {
+        let btn = document.createElement('button');
+        btn.value = letter;
+        btn.textContent = letter;
+        keyboard.appendChild(btn);
+    });
+
+    drawHangingPost();
+});
+
+
+
+gameSpotLight.addEventListener('click', (event) => {
+    if (event.target.id === 'reset') {
+        wordSetup.style.display = 'block';
+        gameSpotLight.style.display = 'none';
+        keyboard.innerHTML = '';
+        wordInput.value = '';
+        reset.remove();
+        btnCr = false;
+        wordSpotLight.innerHTML = '';
+        word = ''; // Reset word
+        guessedLetters = []; // Reset guessed letters
+        incorrectGuesses = 0; // Reset incorrect guesses
+        dashesElements = []; // Reset dashesElements array
+        hangmanCanvasContext.clearRect(0, 0, hangManCanvas.width, hangManCanvas.height)
+
+    }
+    console.log(event.target.id);
+});
+
+keyboard.addEventListener('click', (event) => {
+    let guessedLetter = event.target.value;
+    let correctGuess = false;
+
+    for (let i = 0; i < word.length; i++) {
+        if (word[i] === guessedLetter) {
+            correctGuess = true;
+            dashesElements[i].innerText = guessedLetter;
+        }
+    }
+
+    if (!correctGuess) {
+        winCr = true;
+        incorrectGuesses++; // Increase the number of incorrect guesses
+
+        drawHangmanBody(incorrectGuesses); // Draw hangman part
+
+        if (incorrectGuesses >= 6) {
+            // Game over, all hangman parts drawn
+            setTimeout(() => {
+                alert("You lost!");
+            }, 200); // Delay alert for 200 milliseconds
+        }
+    } else {
+        winCr = true;
+        // Check if the word has been guessed
+        const currentGuessedWord = dashesElements.map((element) => element.innerText).join('');
+        if (currentGuessedWord === word) {
+
+            setTimeout(() => {
+                alert("You've guessed the word!");
+            }, 200); // Delay alert for 200 milliseconds
+        }
+    }
+
+});
+
+
