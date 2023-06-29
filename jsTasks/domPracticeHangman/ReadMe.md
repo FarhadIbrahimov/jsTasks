@@ -27,7 +27,7 @@ The Hangman game has the following dependencies:
 - None
 
 ## Authors
-![Farhad Ibrahimov](author.png)
+![The HangedMan](author.png)
 
 ## Acknowledgments
 This project was inspired by the classic game of Hangman.
