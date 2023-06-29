@@ -20,3 +20,34 @@ let height = '30vw'
 
 
 let guessesLeft; // Variable for the number of guesses left
+
+class DrawLine {
+    constructor(context, startX, startY, endX, endY) {
+        this.context = context;
+        this.startX = startX;
+        this.startY = startY;
+        this.endX = endX;
+        this.endY = endY;
+    }
+
+    draw() {
+        this.context.beginPath();
+        this.context.moveTo(this.startX, this.startY);
+        this.context.lineTo(this.endX, this.endY);
+        this.context.stroke();
+    }
+}
+class DrawCircle {
+    constructor(context, centerX, centerY, radius) {
+        this.context = context;
+        this.centerX = centerX;
+        this.centerY = centerY;
+        this.radius = radius;
+    }
+
+    draw() {
+        this.context.beginPath();
+        this.context.arc(this.centerX, this.centerY, this.radius, 0, Math.PI * 2, true);
+        this.context.stroke();
+    }
+}
