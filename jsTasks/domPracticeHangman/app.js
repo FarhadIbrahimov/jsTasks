@@ -51,3 +51,56 @@ class DrawCircle {
         this.context.stroke();
     }
 }
+
+
+function drawHangingPost() {
+    // Vertical post
+    let verticalPost = new DrawLine(hangmanCanvasContext, 22, 10, 22, 148);
+    verticalPost.draw();
+
+    // Horizontal beam
+    let horizontalBeam = new DrawLine(hangmanCanvasContext, 22, 10, 150, 10);
+    horizontalBeam.draw();
+
+    // Short vertical line
+    let shortVerticalLine = new DrawLine(hangmanCanvasContext, 150, 10, 150, 25);
+    shortVerticalLine.draw();
+}
+
+function drawHangmanBody(incorrectGuesses) {
+    switch (incorrectGuesses) {
+        case 1:
+            // Head
+            let head = new DrawCircle(hangmanCanvasContext, 150, 38, 12);
+            head.draw();
+            break;
+        case 2:
+            // Body
+            let body = new DrawLine(hangmanCanvasContext, 150, 50, 150, 80);
+            body.draw();
+            break;
+        case 3:
+            // Left arm
+            let leftArm = new DrawLine(hangmanCanvasContext, 150, 50, 100, 60);
+            leftArm.draw();
+            break;
+        case 4:
+            // Right arm
+            let rightArm = new DrawLine(hangmanCanvasContext, 150, 50, 200, 60);
+            rightArm.draw();
+            break;
+        case 5:
+            // Left leg
+            let leftLeg = new DrawLine(hangmanCanvasContext, 150, 80, 100, 100);
+            leftLeg.draw();
+            break;
+        case 6:
+            // Right leg
+            let rightLeg = new DrawLine(hangmanCanvasContext, 150, 80, 200, 100);
+            rightLeg.draw();
+            break;
+        default:
+            break;
+    }
+}
+
