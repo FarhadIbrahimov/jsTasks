@@ -26,8 +26,9 @@ The Hangman game has the following dependencies:
 
 - None
 
-## Authors
-![The HangedMan](author.png)
+## Author
+![The HangedMan](author.png)  
+***The HangedMan***
 
 ## Acknowledgments
 This project was inspired by the classic game of Hangman.
